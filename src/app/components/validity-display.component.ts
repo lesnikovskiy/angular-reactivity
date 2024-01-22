@@ -3,7 +3,7 @@ import { Model } from "../models/model";
 
 @Component({
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'validity-display',
   template: `
     <label>Validity:</label>
