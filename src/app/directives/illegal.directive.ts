@@ -1,4 +1,4 @@
-import { Directive, Input, inject, input } from "@angular/core";
+import { Directive, inject, input } from "@angular/core";
 import { ModelDirective } from "./model.directive";
 
 @Directive({
@@ -8,6 +8,7 @@ import { ModelDirective } from "./model.directive";
 export class IllegalDirective {
   private readonly modelDirective = inject(ModelDirective, { self: true });
 
+  // No setTimeout is necessary cause Angular undestands signal Graph
   illegal = input.required<string>();
 
   ngOnInit(): void {
