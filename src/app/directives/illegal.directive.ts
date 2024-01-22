@@ -1,4 +1,4 @@
-import { Directive, Input, inject } from "@angular/core";
+import { Directive, Input, inject, input } from "@angular/core";
 import { ModelDirective } from "./model.directive";
 
 @Directive({
@@ -8,14 +8,11 @@ import { ModelDirective } from "./model.directive";
 export class IllegalDirective {
   private readonly modelDirective = inject(ModelDirective, { self: true });
 
-  private _illegal = '';
-  @Input({ required: true }) set illegal(value: string) {
-    setTimeout(() => this._illegal = value, 0);
-  }
+  illegal = input.required<string>();
 
   ngOnInit(): void {
     this.modelDirective.model.addValidator(value => {
-      for (const ch of this._illegal) {
+      for (const ch of this.illegal()) {
         if (value.includes(ch)) {
           return false;
         }
