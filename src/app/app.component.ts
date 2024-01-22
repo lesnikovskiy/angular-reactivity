@@ -12,13 +12,13 @@ import { IllegalDirective } from './directives/illegal.directive';
   ],
   template: `
     <div>
+      <label>Status</label> {{ myModel.valid ? 'Valid' : 'Invalid' }}
+    </div>
+    <div>
       <label>Illegal:</label> <input #forbid (input)="null">
     </div>
     <div>
       <label>Value:</label> <input [model]="myModel" [illegal]="forbid.value">
-    </div>
-    <div>
-      <label>Status</label> {{ myModel.valid ? 'Valid' : 'Invalid' }}
     </div>
   `,
   styleUrl: './app.component.scss'
