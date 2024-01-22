@@ -1,0 +1,13 @@
+.validity {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin: auto 4px;
+  vertical-align: middle;
+  background-color: red;
+}
+
+.valid {
+  background-color: green !important;
+}
