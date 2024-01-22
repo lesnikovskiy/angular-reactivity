@@ -7,7 +7,7 @@ import { Model } from "../models/model";
   selector: 'validity-display',
   template: `
     <label>Validity:</label>
-    <div class="validity" [class.valid]="model.valid"></div>
+    <div class="validity" [class.valid]="model.valid()"></div>
   `,
   styleUrl: './validity-display.component.scss'
 })

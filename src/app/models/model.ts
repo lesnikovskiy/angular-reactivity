@@ -1,13 +1,15 @@
+import { computed, signal } from "@angular/core";
+
 export class Model {
-  value = '';
+  value = signal('');
 
-  private validators: Array<(value: string) => boolean> = [];
+  private validators = signal<Array<(value: string) => boolean>>([]);
 
-  get valid(): boolean {
-    return this.validators.every(fn => fn(this.value));
-  }
+  valid = computed<boolean>(() =>
+    this.validators().every(fn => fn(this.value()))
+  );
 
   addValidator(validator: (value: string) => boolean): void {
-    this.validators.push(validator);
+    this.validators.update(arr => [...arr, validator]);
   }
 }

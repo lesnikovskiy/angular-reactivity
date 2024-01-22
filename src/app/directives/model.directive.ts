@@ -12,10 +12,10 @@ export class ModelDirective {
 
   @HostListener('input')
   onInput(): void {
-    this.model.value = this.el.nativeElement.value;
+    this.model.value.set(this.el.nativeElement.value);
   }
 
   ngDoCheck(): void {
-    this.el.nativeElement.value = this.model.value;
+    this.el.nativeElement.value = this.model.value();
   }
 }
